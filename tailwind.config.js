@@ -28,7 +28,7 @@ export default {
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
-        poppins: ["Poppins", "sans-serif"],
+        mulish: ["Mulish", "sans-serif"],
       },
       transitionProperty: {
         borderColor: "border-color",
