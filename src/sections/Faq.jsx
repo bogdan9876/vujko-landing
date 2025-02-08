@@ -8,7 +8,7 @@ const Faq = () => {
   return (
     <section>
       <Element name="Характеристики" className="relative">
-        <div className="container relative z-2 py-28">
+        <div className="container relative z-2 pt-28 pb-20">
           <div>
             <h3 className="h3 max-md:h5 max-w-640 max-lg:max-w-md mb-7 text-p4">
               Curiosity didn't kill the cat, it gave it answers.
@@ -17,8 +17,6 @@ const Faq = () => {
               You've got questions, we've got answers.
             </p>
           </div>
-
-          <div className="faq-line_after w-0.5 h-full absolute left-[calc(50%-1px)] top-0 -z-1 bg-s2" />
         </div>
 
         <div className="faq-glow_before relative z-2 border-2 border-s2 bg-s1">
