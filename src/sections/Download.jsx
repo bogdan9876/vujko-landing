@@ -12,18 +12,14 @@ const Download = () => {
         <div className="container">
           <div className="flex items-center">
             <div className="relative mr-6 flex-540 max-xl:flex-280 max-lg:flex256 max-md:flex-100">
-              <div className="mb-10">
-                <img
-                  src="/images/xora.svg"
-                  width={160}
-                  height={55}
-                  alt="xora"
-                />
+              <div className="mb-5">
+                <h3 className="h3 max-lg:h4 max-md:h5 z-3 relative ml-0 mb-7 max-w-lg text-p4 max-md:mb-11 max-sm:max-w-sm">
+                  Сайт конфігурації
+                </h3>
               </div>
 
               <p className="body-1 mb-10 max-w-md">
-                Try it now for free on iOS, Android, PC, Web - whatever your
-                flavor, we've got you covered.
+                Адаптивний сайт конфігурації під будь-який пристрій
               </p>
 
               <ul className="flex flex-wrap items-center gap-6">

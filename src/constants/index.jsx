@@ -2,9 +2,9 @@ export const features = [
   {
     id: "0",
     icon: "/images/feature-1.png",
-    caption: "Easy integration",
-    title: "Work smarter not harder",
-    text: "With Xora, tedious tasks are history. Automation and smart processes bring your productivity to new heights. It's like having an extra cup of coffee, but without the jitters.",
+    caption: "Підключення та налаштування",
+    title: "Легке налаштування плати ініціації",
+    text: "Плата ініціації VUJKO_4.2.2 за замовчуванням працює у режимі дрона. Протягом перших 120 секунд після запуску доступні веб-налаштування для зміни конфігурації. ПІ підтримує різні методи ініціації, включаючи інерційне спрацьовування та командне відключення за найвищим пріоритетом.",
     button: {
       icon: "/images/magictouch.svg",
       title: "Watch the demo",
@@ -13,9 +13,9 @@ export const features = [
   {
     id: "1",
     icon: "/images/feature-2.png",
-    caption: "Secure & trustworthy",
-    title: "Sleep easy, we got your back",
-    text: "Your data security is our priority. With state-of-the-art encryption and robust privacy controls, Xora helps keeps your information secure and locked up tighter than Fort Knox.",
+    caption: "Бойовий режим та безпека",
+    title: "Налаштування часу самознищення",
+    text: "Налаштування часу самознищення доступні тільки в режимі ARM. Для зміни режиму ініціації або часу самознищення підключіться до точки доступу <Vujko-[унікальний id]> без пароля протягом перших двох хвилин. Веб-сторінка для налаштувань доступна за адресами 'vujko.local' або '192.168.4.1'.",
     button: {
       icon: "/images/docs.svg",
       title: "Read the docs",
