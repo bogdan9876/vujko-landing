@@ -6,7 +6,7 @@ const Download = () => {
   return (
     <section>
       <Element
-        name="download"
+        name="Конфігурація"
         className="g7 relative pb-32 pt-24 max-lg:pb-24 max-md:py-16"
       >
         <div className="container">
@@ -55,7 +55,7 @@ const Download = () => {
                   <span className="download_preview-dot left-16 bg-p1/15" />
 
                   <img
-                    src="/images/screen.jpg"
+                    src="/images/ok.jpg"
                     width={855}
                     height={655}
                     alt="screen"

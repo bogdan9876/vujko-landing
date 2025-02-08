@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { Element } from "react-scroll";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { Suspense } from "react";
 import { testimonials } from "../constants/index.jsx";
-import TestimonialItem from "../components/TestimonialItem.jsx";
 
 const Model = () => {
   const [model, setModel] = useState(null);
@@ -41,6 +41,7 @@ const Testimonials = () => {
 
   return (
     <section className="relative z-2 py-24 md:py-28 lg:py-30">
+      <Element name="ЗД Модель">
       <div className="container block lg:flex">
         <div className="testimonials_head-res relative z-2 mr-20 flex-300">
           <p className="caption mb-5 max-md:mb-2.5">3д Модель</p>
@@ -58,6 +59,7 @@ const Testimonials = () => {
           </Suspense>
         </div>
       </div>
+      </Element>
     </section>
   );
 };

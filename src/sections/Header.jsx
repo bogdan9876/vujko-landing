@@ -52,11 +52,11 @@ const Header = () => {
         >
           <div className="max-lg:relative max-lg:flex max-lg:flex-col max-lg:min-h-screen max-lg:p-6 max-lg:overflow-hidden sidebar-before max-md:px-4">
             <nav className="max-lg:relative max-lg:z-2 max-lg:my-auto">
-              <ul className="flex max-lg:block max-lg:px-12">
+              <ul className="flex max-lg:block max-lg:px-15">
                 <li className="nav-li">
                   <NavLink title="Особливості" />
                   <div className="dot" />
-                  <NavLink title="pricing" />
+                  <NavLink title="Характеристики" />
                 </li>
 
                 <li className="nav-logo">
@@ -79,9 +79,9 @@ const Header = () => {
                 </li>
 
                 <li className="nav-li">
-                  <NavLink title="faq" />
+                  <NavLink title="ЗД Модель" />
                   <div className="dot" />
-                  <NavLink title="download" />
+                  <NavLink title="Конфігурація" />
                 </li>
               </ul>
             </nav>
