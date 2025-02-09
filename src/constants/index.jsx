@@ -244,26 +244,26 @@ export const links = [
 export const socials = [
   {
     id: "0",
-    title: "x",
-    icon: "/images/socials/x.svg",
-    url: "#",
+    title: "Phone",
+    icon: "/images/socials/phone.svg",
+    url: "callto:+380980041411",
   },
   {
     id: "1",
-    title: "Threads",
-    icon: "/images/socials/threads.svg",
-    url: "#",
+    title: "Linkedin",
+    icon: "/images/socials/linkedin.svg",
+    url: "https://www.linkedin.com/in/vladislav-vanyuk-embedded-system-developer/",
   },
   {
     id: "2",
     title: "Instagram",
     icon: "/images/socials/instagram.svg",
-    url: "#",
+    url: "https://www.instagram.com/vlados_vanyuk/",
   },
   {
     id: "3",
-    title: "Discord",
-    icon: "/images/socials/discord.svg",
-    url: "#",
+    title: "Telegram",
+    icon: "/images/socials/telegram.svg",
+    url: "https://t.me/VladVanyuk",
   },
 ];
