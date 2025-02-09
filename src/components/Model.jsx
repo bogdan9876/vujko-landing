@@ -11,7 +11,7 @@ const Model = () => {
       "images/vujko.obj",
       (obj) => {
         obj.scale.set(0.7, 0.7, 0.7);
-        obj.position.set(0, 0, 0);
+        obj.position.set(0, -1, 0);
         setModel(obj);
       },
       undefined,
