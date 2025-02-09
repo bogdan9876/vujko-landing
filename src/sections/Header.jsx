@@ -18,11 +18,11 @@ const Header = () => {
     };
   }, []);
 
-  const NavLink = ({ title }) => (
+  const NavLink = ({ title, offset }) => (
     <LinkScroll
       onClick={() => setIsOpen(false)}
       to={title}
-      offset={-100}
+      offset={offset}
       spy
       smooth
       activeClass="nav-active"
@@ -54,9 +54,9 @@ const Header = () => {
             <nav className="max-lg:relative max-lg:z-2 max-lg:my-auto">
               <ul className="flex max-lg:block max-lg:px-15">
                 <li className="nav-li">
-                  <NavLink title="Особливості" />
+                  <NavLink title="Особливості" offset={-100}/>
                   <div className="dot" />
-                  <NavLink title="Характеристики" />
+                  <NavLink title="Характеристики" offset={-30}/>
                 </li>
 
                 <li className="nav-logo">
@@ -79,7 +79,7 @@ const Header = () => {
                 </li>
 
                 <li className="nav-li">
-                  <NavLink title="ЗД Модель" />
+                  <NavLink title="ЗД Модель" offset={-100}/>
                   <div className="dot" />
                   <NavLink title="Конфігурація" />
                 </li>
