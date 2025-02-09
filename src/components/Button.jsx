@@ -29,11 +29,12 @@ const Button = ({
       <span className="glow-before glow-after" />
     </>
   );
+
   return href ? (
     <a
       className={clsx(
-        "relative p-0.5 g5 rounded-2xl shadow-500 group",
-        containerClassName,
+        "relative inline-flex p-0.5 g5 rounded-2xl shadow-500 group no-underline",
+        containerClassName
       )}
       href={href}
     >
@@ -43,7 +44,7 @@ const Button = ({
     <button
       className={clsx(
         "relative p-0.5 g5 rounded-2xl shadow-500 group",
-        containerClassName,
+        containerClassName
       )}
       onClick={onClick}
     >
