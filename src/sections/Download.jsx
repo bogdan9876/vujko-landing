@@ -8,6 +8,7 @@ const Download = () => {
       <Element
         name="Конфігурація"
         className="g7 relative pb-32 pt-24 max-lg:pb-24 max-md:py-16"
+        spy={false}
       >
         <div className="container">
           <div className="flex items-center">
@@ -54,12 +55,12 @@ const Download = () => {
                   <span className="download_preview-dot left-11 bg-s3" />
                   <span className="download_preview-dot left-16 bg-p1/15" />
 
-                  <img
-                    src="/images/ok.jpg"
-                    width={855}
-                    height={655}
-                    alt="screen"
-                    className="rounded-xl"
+                  <iframe
+                    src="/vujko/custom.htm"
+                    width="855"
+                    height="655"
+                    className="rounded-xl border-0"
+                    title="custom preview"
                   />
                 </div>
               </div>
