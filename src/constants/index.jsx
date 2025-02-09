@@ -26,64 +26,64 @@ export const features = [
 export const faq = [
   {
     id: "0",
-    question: "How easy is it to setup Vujko?",
+    question: "Які режими роботи підтримує плата ініціації Vujko?",
     answer:
-      "Absolutely! Not only you can upgrade your plan at any time but you also get a prorated discount giving you maximum value for your subscription.",
+      "Плата ініціації Vujko підтримує два основних режими роботи: режим БПЛА (дрон) та стаціонарний режим міни. У режимі БПЛА плата ініціює вибухи через сигнал з пульта управління, а в режимі міни — через механічний вплив або спрацювання таймерів.",
   },
   {
     id: "1",
-    question: "Can I integrate Vujko with other platforms?",
+    question: "Яка вартість плати ініціації Vujko?",
     answer:
-      "Absolutely! Not only you can upgrade your plan at any time but you also get a prorated discount giving you maximum value for your subscription.",
+      "Ціна плати ініціації Vujko за один екземпляр наразі 500грн",
   },
   {
     id: "2",
-    question: "How often do you add new content?",
+    question: "Як підключитися до веб-налаштувань пристрою?",
     answer:
-      "Absolutely! Not only you can upgrade your plan at any time but you also get a prorated discount giving you maximum value for your subscription.",
+      "Для доступу до веб-налаштувань пристрою потрібно підключитися до Wi-Fi мережі, створеної платою ініціації, використовуючи адресу <Vujko-[унікальний id]> або 192.168.4.1 через браузер. Це дозволить налаштувати параметри часу та режиму роботи.",
   },
   {
     id: "3",
-    question: "What your refund policy?",
+    question: "Як можна контролювати пристрій під час роботи?",
     answer:
-      "Absolutely! Not only you can upgrade your plan at any time but you also get a prorated discount giving you maximum value for your subscription.",
+      "Пристрій можна контролювати через PWM сигнали, подаючи їх на вхід 'Servo1'. Для управління використовується трьохпозиційний перемикач пульта: IDLE (1000 мкс), ARM (1500 мкс), FIRE (2000 мкс).",
   },
   {
     id: "4",
-    question: "Do you have corporate plans?",
+    question: "Чи можна змінювати час самознищення?",
     answer:
-      "Absolutely! Not only you can upgrade your plan at any time but you also get a prorated discount giving you maximum value for your subscription.",
+      "Так, час самознищення можна налаштувати в режимі веб-налаштувань. За замовчуванням цей час складає 20 хвилин після активації пристрою, але його можна змінити відповідно до потреб.",
   },
   {
     id: "5",
-    question: "What happens when I’m out of storage?",
+    question: "Як виглядає процес активації пристрою?",
     answer:
-      "Absolutely! Not only you can upgrade your plan at any time but you also get a prorated discount giving you maximum value for your subscription.",
+      "Процес активації починається після підключення пристрою до БПЛА або встановлення в режим міни. Потрібно активувати пристрій через пульт управління та переконатися в готовності через індикацію світлодіода. Після цього можна виконати підрив через задані сигнали.",
   },
   {
     id: "6",
-    question: "Can I upgrade my plan?",
+    question: "Що робити, якщо пристрій не реагує на команди?",
     answer:
-      "Absolutely! Not only you can upgrade your plan at any time but you also get a prorated discount giving you maximum value for your subscription.",
+      "Перевірте підключення та налаштування пристрою через веб-інтерфейс. Якщо проблема не вирішується, спробуйте перезавантажити пристрій або перевірте стан акумулятора. Також важливо переконатися, що сигнали на вхід 'Servo1' передаються коректно.",
   },
   {
     id: "7",
-    question: "How do I invite my team?",
+    question: "Чи можна використовувати плату ініціації з іншими системами?",
     answer:
-      "Absolutely! Not only you can upgrade your plan at any time but you also get a prorated discount giving you maximum value for your subscription.",
+      "Так, плата ініціації Vujko може бути інтегрована з різними типами БПЛА та іншими системами через стандартні PWM сигнали або механічні з'єднання. Для детальної інтеграції рекомендується звернутися до технічної підтримки.",
   },
   {
     id: "8",
-    question: "Do you offer training for individuals and teams?",
+    question: "Як дізнатися про помилки в роботі пристрою?",
     answer:
-      "Absolutely! Not only you can upgrade your plan at any time but you also get a prorated discount giving you maximum value for your subscription.",
+      "Пристрій має вбудовану систему індикації помилок, яка повідомляє про різні неполадки через миготіння світлодіода. Наприклад, 15 швидких мигань означають помилку під час запуску файлової системи, а 5 швидких мигань — підключення клієнта для веб-налаштувань.",
   },
   {
     id: "9",
-    question: "I’m locked out of my account what do I do?",
+    question: "Який рівень безпеки має плата ініціації?",
     answer:
-      "Absolutely! Not only you can upgrade your plan at any time but you also get a prorated discount giving you maximum value for your subscription.",
-  },
+      "Плата ініціації Vujko забезпечує високий рівень безпеки завдяки наявності кількох рівнів захисту, включаючи таймери безпеки, індикацію стану пристрою та механізм самознищення. Це забезпечує надійність при використанні як у бойових, так і в тренувальних умовах.",
+  }
 ];
 
 export const Ios = () => {
