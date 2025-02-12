@@ -18,7 +18,7 @@ const Hero = () => {
               призначення з можливістю динамічного веб-налаштування, який можна використовувати в поєднанні з 
               БПЛА FPV як бортовий пристрій
             </p>
-              <Button icon="/images/zap.svg" href='https://t.me/VladVanyuk'>Замовити</Button>
+              <Button icon="/images/zap.svg" href='https://www.linkedin.com/in/andriy-smyk-478695254/'>Замовити</Button>
           </div>
 
           <div className="absolute -top-32 left-[calc(50%-340px)] w-[1230px] pointer-events-none hero-img_res">
