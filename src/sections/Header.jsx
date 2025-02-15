@@ -56,7 +56,7 @@ const Header = () => {
                 <li className="nav-li">
                   <NavLink title="Особливості" offset={-100}/>
                   <div className="dot" />
-                  <NavLink title="Характеристики" offset={-30}/>
+                  <NavLink title="Характеристики" offset={-100}/>
                 </li>
 
                 <li className="nav-logo">
@@ -81,7 +81,7 @@ const Header = () => {
                 <li className="nav-li">
                   <NavLink title="ЗД Модель" offset={-100}/>
                   <div className="dot" />
-                  <NavLink title="Конфігурація" />
+                  <NavLink title="Конфігурація"/>
                 </li>
               </ul>
             </nav>
