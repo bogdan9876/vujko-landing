@@ -39,7 +39,7 @@ const Header = () => {
         hasScrolled && "py-2 bg-black-100 backdrop-blur-[8px]",
       )}
     >
-      <div className="container flex h-14 items-center max-lg:px-6">
+      <div className="container flex h-14 items-center max-lg:px-4">
         <a className="lg:hidden flex-1 cursor-pointer z-2">
          <img src="images/logo.png" width={45} height={165} alt="logo" /> 
         </a>
@@ -55,11 +55,11 @@ const Header = () => {
               <ul className="flex max-lg:block max-lg:px-15">
                 <li className="nav-li">
                   <NavLink title="Особливості" offset={-100}/>
-                  <div className="dot" />
+                  <div className="dot mx-15"/>
                   <NavLink title="Характеристики" offset={-100}/>
                 </li>
 
-                <li className="nav-logo">
+                <li className="nav-logo px-0">
                   <LinkScroll
                     to="hero"
                     offset={-250}
@@ -72,7 +72,6 @@ const Header = () => {
                     <img
                       src="/images/logo.svg"
                       width={160}
-                      height={55}
                       alt="logo"
                     />
                   </LinkScroll>
@@ -80,7 +79,7 @@ const Header = () => {
 
                 <li className="nav-li">
                   <NavLink title="ЗД Модель" offset={-100}/>
-                  <div className="dot" />
+                  <div className="dot mx-15" />
                   <NavLink title="Конфігурація"/>
                 </li>
               </ul>
