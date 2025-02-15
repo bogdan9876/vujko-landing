@@ -70,8 +70,8 @@ const Header = () => {
                     )}
                   >
                     <img
-                      src="/images/logo.png"
-                      width={60}
+                      src="/images/logo.svg"
+                      width={160}
                       alt="logo"
                     />
                   </LinkScroll>
