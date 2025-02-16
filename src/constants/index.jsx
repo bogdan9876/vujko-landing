@@ -228,13 +228,13 @@ export const socials = [
     id: "1",
     title: "Linkedin",
     icon: "/images/socials/linkedin.svg",
-    url: "https://www.linkedin.com/in/vladislav-vanyuk-embedded-system-developer/",
+    url: "https://www.linkedin.com/company/vujko/",
   },
   {
     id: "2",
-    title: "Instagram",
-    icon: "/images/socials/instagram.svg",
-    url: "https://www.instagram.com/vlados_vanyuk/",
+    title: "Gmail",
+    icon: "/images/socials/gmail.svg",
+    url: "mailto:contact@vujko.net",
   },
   {
     id: "3",
