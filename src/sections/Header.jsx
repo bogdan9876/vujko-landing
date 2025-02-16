@@ -59,7 +59,7 @@ const Header = () => {
                   <NavLink title="Характеристики" offset={-100}/>
                 </li>
 
-                <li className="nav-logo px-0">
+                <li className="nav-logo">
                   <LinkScroll
                     to="hero"
                     offset={-250}
@@ -70,8 +70,8 @@ const Header = () => {
                     )}
                   >
                     <img
-                      src="/images/logo.svg"
-                      width={160}
+                      src="/images/logo.png"
+                      width={60}
                       alt="logo"
                     />
                   </LinkScroll>
