@@ -18,27 +18,27 @@ const Footer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbz_63N8xhoNzUDw8fTpZvTU4x7CwHhsXlvU6EE8CCtdbgt_16b6gDlvAm_dcTGNgwZ1/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-        }),
-      });
-  
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbysHe2ONOG6M-zgyhnK28fAgEkvPWkdvXu3U9vfM7Ya9Tm8gCRPwDCO4Z2xsjgahN-zPQ/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(formData).toString(),
+        }
+      );
+
       if (response.ok) {
         setStatusMessage("Дані успішно надіслані!");
-        setFormData({ name: "", email: "" });
-      } else {
+        setFormData({ firstName: "", email: "" });
+      } else {firstName
         setStatusMessage("Виникла помилка при відправці даних.");
       }
     } catch (error) {
-      console.log('Error:', error);
+      console.error("Помилка:", error);
       setStatusMessage("Помилка з'єднання.");
     }
   };
@@ -82,7 +82,7 @@ const Footer = () => {
               <input
                 type="text"
                 name="name"
-                value={formData.name}
+                value={formData.firstName}
                 onChange={handleInputChange}
                 placeholder="Ваше ім'я"
                 className="p-3 border border-gray-300 rounded-md"
