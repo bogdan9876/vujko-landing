@@ -48,54 +48,56 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className="container py-10">
-        <div className="flex flex-1 flex-col items-center justify-center gap-5 max-md:w-full">
-          <div className="flex flex-col items-center gap-2">
-          <h3 className="text-xl mb-5">Залишіть свої дані</h3>
-          </div> 
-        </div>
-        <div className="flex flex-1 items-center justify-center max-md:w-full max-md:mt-10">
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-4 w-full max-w-md"
-          >
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              placeholder="Ваше ім'я"
-              className="p-3 border border-gray-300 rounded-xl cursor-pointer"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="Ваша електронна пошта"
-              className="p-3 border border-gray-300 rounded-xl cursor-pointer"
-              required
-            />
-            <textarea
-              type="text"
-              name="text"
-              value={formData.text}
-              onChange={handleInputChange}
-              placeholder="Ваше запитання"
-              className="p-3 border border-gray-300 rounded-xl cursor-pointer resize-none"
-              required
-            />
-            <Button
-              type="submit"
-              className="mt-4 p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+      <div className="container py-5">
+        <div className="flex">
+          <div className="flex flex-1 flex-col items-center justify-center gap-5 max-md:w-full">
+            <div className="flex flex-col items-center gap-2">
+              <h3 className="h4 mb-5">Залишіть свої дані</h3>
+            </div>
+          </div>
+          <div className="flex flex-1 items-center justify-center max-md:w-full max-md:mt-10">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-4 w-full max-w-md"
             >
-              Надіслати
-            </Button>
-            {statusMessage && (
-              <p className="mt-4 text-center text-lg">{statusMessage}</p>
-            )}
-          </form>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="Ваше ім'я"
+                className="p-3 border border-gray-300 rounded-xl cursor-pointer"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Ваша електронна пошта"
+                className="p-3 border border-gray-300 rounded-xl cursor-pointer"
+                required
+              />
+              <textarea
+                type="text"
+                name="text"
+                value={formData.text}
+                onChange={handleInputChange}
+                placeholder="Ваше запитання"
+                className="p-3 border border-gray-300 rounded-xl cursor-pointer resize-none"
+                required
+              />
+              <Button
+                type="submit"
+                className="mt-4 p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+              >
+                Надіслати
+              </Button>
+              {statusMessage && (
+                <p className="mt-4 text-center text-lg">{statusMessage}</p>
+              )}
+            </form>
+          </div>
         </div>
         <div className="flex w-full max-md:flex-col">
           <div className="small-compact flex flex-1 flex-wrap items-center justify-center gap-5">
