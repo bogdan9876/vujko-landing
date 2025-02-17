@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { socials } from "../constants/index.jsx";
-import Button from "../components/Button.jsx";
 
 const Footer = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +8,7 @@ const Footer = () => {
     text: ""
   });
   const [statusMessage, setStatusMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -20,6 +20,8 @@ const Footer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch(
@@ -37,12 +39,13 @@ const Footer = () => {
         setStatusMessage("Дані успішно надіслані!");
         setFormData({ name: "", email: "", text: "" });
       } else {
-        name
         setStatusMessage("Виникла помилка при відправці даних.");
       }
     } catch (error) {
       console.error("Помилка:", error);
       setStatusMessage("Помилка з'єднання.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -58,7 +61,7 @@ const Footer = () => {
           <div className="flex flex-1 items-center justify-center max-md:w-full max-md:mt-10 mb-5">
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-4 w-full"
+              className="flex flex-col gap-4 w-full max-w-md"
             >
               <input
                 type="text"
@@ -87,12 +90,23 @@ const Footer = () => {
                 className="p-3 border border-gray-300 rounded-xl cursor-pointer resize-none bg-white text-black"
                 required
               />
-              <Button
+              <button
                 type="submit"
-                className="mt-4 p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 flex justify-center items-center"
+                className="relative rounded-2xl shadow-500 group no-underline"
+                disabled={isSubmitting}
               >
-                Надіслати
-              </Button>
+                <span className="relative flex items-center justify-center min-h-[60px] px-6 g4 rounded-2xl overflow-hidden group-hover:before:opacity-100">
+                  <span className="relative z-2 font-poppins base-bold text-p1 uppercase text-center">
+                    {isSubmitting ? (
+                      <div className="w-6 h-6 border-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
+                    ) : (
+                      "Надіслати"
+                    )}
+                  </span>
+                </span>
+                <span className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-2xl" />
+                <span className="glow-before glow-after" />
+              </button>
               {statusMessage && (
                 <p className="mt-4 text-center text-lg">{statusMessage}</p>
               )}
