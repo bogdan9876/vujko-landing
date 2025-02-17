@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { socials } from "../constants/index.jsx";
-import Button from "../components/Button.jsx";
 
 const Footer = () => {
   const [formData, setFormData] = useState({
@@ -89,13 +88,14 @@ const Footer = () => {
               />
               <button
                 type="submit"
-                className="relative inline-flex items-center justify-center min-h-[60px] px-6 g5 rounded-2xl shadow-500 group no-underline"
+                className="relative rounded-2xl shadow-500 group no-underline"
               >
-                <span className="relative flex items-center justify-center min-h-[60px] px-6 g4 rounded-2xl inner-before group-hover:before:opacity-100 overflow-hidden">
-                  <span className="relative z-2 font-poppins base-bold text-p1 uppercase text-center text-[#42f4ff]">
+                <span className="relative flex items-center justify-center min-h-[60px] px-6 g4 rounded-2xl overflow-hidden group-hover:before:opacity-100">
+                  <span className="relative z-2 font-poppins base-bold text-p1 uppercase text-center">
                     Надіслати
                   </span>
                 </span>
+                <span className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-2xl" />
                 <span className="glow-before glow-after" />
               </button>
               {statusMessage && (
