@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { socials } from "../constants/index.jsx";
+import Button from "../components/Button.jsx";
 
 const Footer = () => {
   const [formData, setFormData] = useState({
@@ -85,7 +86,7 @@ const Footer = () => {
                 value={formData.firstName}
                 onChange={handleInputChange}
                 placeholder="Ваше ім'я"
-                className="p-3 border border-gray-300 rounded-md"
+                className="p-3 border border-gray-300 rounded-xl cursor-pointer"
                 required
               />
               <input
@@ -94,15 +95,15 @@ const Footer = () => {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="Ваша електронна пошта"
-                className="p-3 border border-gray-300 rounded-md"
+                className="p-3 border border-gray-300 rounded-xl cursor-pointer"
                 required
               />
-              <button
+              <Button
                 type="submit"
                 className="mt-4 p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600"
               >
                 Надіслати
-              </button>
+              </Button>
               {statusMessage && (
                 <p className="mt-4 text-center text-lg">{statusMessage}</p>
               )}
