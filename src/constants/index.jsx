@@ -3,8 +3,8 @@ export const features = [
     id: "0",
     icon: "/images/feature-1.png",
     caption: "Підключення та налаштування",
-    title: "Легке налаштування плати ініціації",
-    text: "Плата ініціації VUJKO_4.2.2 за замовчуванням працює у режимі дрона. Протягом перших 120 секунд після запуску доступні веб-налаштування для зміни конфігурації. ПІ підтримує різні методи ініціації, включаючи інерційне спрацьовування та командне відключення за найвищим пріоритетом.",
+    title: "Налаштування плати ініціації",
+    text: "Для зміни режиму ініціації та її конфігурації підключіться до WiFi <Vujko-[унікальний id]>. Веб-сторінка для налаштувань доступна за адресами 'vujko.local' або '192.168.4.1' Пристрій підримує різні методи ініціації: інерційне спрацьовування, ударна детонація, програмне примусове від команди оператора.",
     button: {
       icon: "/images/magictouch.svg",
       title: "Дивитись демо",
@@ -228,13 +228,13 @@ export const socials = [
     id: "1",
     title: "Linkedin",
     icon: "/images/socials/linkedin.svg",
-    url: "https://www.linkedin.com/in/vladislav-vanyuk-embedded-system-developer/",
+    url: "https://www.linkedin.com/company/vujko/",
   },
   {
     id: "2",
-    title: "Instagram",
-    icon: "/images/socials/instagram.svg",
-    url: "https://www.instagram.com/vlados_vanyuk/",
+    title: "Gmail",
+    icon: "/images/socials/gmail.svg",
+    url: "mailto:contact@vujko.net",
   },
   {
     id: "3",

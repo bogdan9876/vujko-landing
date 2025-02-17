@@ -183,7 +183,7 @@
                             onchange="updateHiddenField('logsDroneEnabled', 'logsDroneEnabledHidden')" />
                         <input type="hidden" id="logsDroneEnabledHidden" name="logsDroneEnabledHidden" value="0" />
                     </label>
-                    <label class="input-label" style="display: inline;">
+                    <label class="input-label" style="display: none;">
                         Режим серверу:
                         <span class="tooltip">*
                             <span class="tooltiptext">Увімкніть серверний режим для взаємодії з іншими пристроями.</span>
@@ -198,15 +198,15 @@
             <div id="expert" class="content-page hide">
                 <h2 class="heading-2">Експерт</h2>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 2em;">
-                    <div style="color: white">
+                    <div style="color: white; display:none">
                         <h3>Реальні значення XYZ</h3>
                         <p>X: <span id="x-value">0</span></p>
                         <p>Y: <span id="y-value">0</span></p>
                         <p>Z: <span id="z-value">0</span></p>
                     </div>
                     <button onclick="restartESP()">Перезавантаження</button>
-                    <button onclick="window.location.href='http://192.168.4.1/edit'">Файли</button>
-                    <button onclick="window.location.href='csv.htm'">Логи</button>
+                    <!-- <button onclick="window.location.href='http://192.168.4.1/edit'">Файли</button>
+                    <button onclick="window.location.href='csv.htm'">Логи</button> -->
                     <button id="reset-defaults">Скинути до заводських</button>
                     <button><a style="text-decoration: none; color: inherit;"
                             href="assets/manual/User_manual_4.2.2_1.pdf" download="">Завантажити посібник
