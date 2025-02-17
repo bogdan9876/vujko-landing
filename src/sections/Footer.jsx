@@ -6,6 +6,7 @@ const Footer = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    text: ""
   });
   const [statusMessage, setStatusMessage] = useState("");
 
@@ -34,7 +35,7 @@ const Footer = () => {
 
       if (response.ok) {
         setStatusMessage("Дані успішно надіслані!");
-        setFormData({ firstName: "", email: "" });
+        setFormData({ firstName: "", email: "" , text: ""});
       } else {firstName
         setStatusMessage("Виникла помилка при відправці даних.");
       }
@@ -96,6 +97,15 @@ const Footer = () => {
                 onChange={handleInputChange}
                 placeholder="Ваша електронна пошта"
                 className="p-3 border border-gray-300 rounded-xl cursor-pointer"
+                required
+              />
+              <textarea
+                type="text"
+                name="text"
+                value={formData.text}
+                onChange={handleInputChange}
+                placeholder="Ваше запитання"
+                className="p-3 border border-gray-300 rounded-xl cursor-pointer resize-none"
                 required
               />
               <Button
