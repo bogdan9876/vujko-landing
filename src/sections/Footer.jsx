@@ -6,6 +6,7 @@ const Footer = () => {
     name: "",
     email: "",
   });
+  const [statusMessage, setStatusMessage] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -15,10 +16,31 @@ const Footer = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Тут можна обробити форму, наприклад, відправити на сервер або використати Google Forms
-    console.log(formData);
+  
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbz_63N8xhoNzUDw8fTpZvTU4x7CwHhsXlvU6EE8CCtdbgt_16b6gDlvAm_dcTGNgwZ1/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+        }),
+      });
+  
+      if (response.ok) {
+        setStatusMessage("Дані успішно надіслані!");
+        setFormData({ name: "", email: "" });
+      } else {
+        setStatusMessage("Виникла помилка при відправці даних.");
+      }
+    } catch (error) {
+      console.log('Error:', error);
+      setStatusMessage("Помилка з'єднання.");
+    }
   };
 
   return (
@@ -28,7 +50,7 @@ const Footer = () => {
           <div className="flex flex-1 flex-col items-center justify-center gap-5 max-md:w-full">
             <div className="flex flex-col items-center gap-2">
               <p className="text-xl text-aligh">Контакти:</p>
-              <p className="legal-after text-p5 transition-all duration-500 hover:text-p1">
+              <p className="text-p5 transition-all duration-500 hover:text-p1 overflow-hidden whitespace-normal break-words">
                 +380 98 004 14 11
               </p>
               <p className="text-p5 transition-all duration-500 hover:text-p1">
@@ -81,6 +103,9 @@ const Footer = () => {
               >
                 Надіслати
               </button>
+              {statusMessage && (
+                <p className="mt-4 text-center text-lg">{statusMessage}</p>
+              )}
             </form>
           </div>
         </div>
