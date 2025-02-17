@@ -58,7 +58,7 @@ const Footer = () => {
           <div className="flex flex-1 items-center justify-center max-md:w-full max-md:mt-10 mb-5">
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-4 w-full"
+              className="flex flex-col gap-4 w-full max-w-md"
             >
               <input
                 type="text"
@@ -87,12 +87,17 @@ const Footer = () => {
                 className="p-3 border border-gray-300 rounded-xl cursor-pointer resize-none bg-white text-black"
                 required
               />
-              <Button
+              <button
                 type="submit"
-                className="mt-4 p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 flex justify-center items-center"
+                className="relative inline-flex items-center justify-center min-h-[60px] px-6 g5 rounded-2xl shadow-500 group no-underline"
               >
-                Надіслати
-              </Button>
+                <span className="relative flex items-center justify-center min-h-[60px] px-6 g4 rounded-2xl inner-before group-hover:before:opacity-100 overflow-hidden">
+                  <span className="relative z-2 font-poppins base-bold text-p1 uppercase text-center text-[#42f4ff]">
+                    Надіслати
+                  </span>
+                </span>
+                <span className="glow-before glow-after" />
+              </button>
               {statusMessage && (
                 <p className="mt-4 text-center text-lg">{statusMessage}</p>
               )}
@@ -126,7 +131,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 };
 
