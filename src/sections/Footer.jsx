@@ -8,6 +8,7 @@ const Footer = () => {
     text: ""
   });
   const [statusMessage, setStatusMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +20,8 @@ const Footer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch(
@@ -36,12 +39,13 @@ const Footer = () => {
         setStatusMessage("Дані успішно надіслані!");
         setFormData({ name: "", email: "", text: "" });
       } else {
-        name
         setStatusMessage("Виникла помилка при відправці даних.");
       }
     } catch (error) {
       console.error("Помилка:", error);
       setStatusMessage("Помилка з'єднання.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -89,10 +93,15 @@ const Footer = () => {
               <button
                 type="submit"
                 className="relative rounded-2xl shadow-500 group no-underline"
+                disabled={isSubmitting}
               >
                 <span className="relative flex items-center justify-center min-h-[60px] px-6 g4 rounded-2xl overflow-hidden group-hover:before:opacity-100">
                   <span className="relative z-2 font-poppins base-bold text-p1 uppercase text-center">
-                    Надіслати
+                    {isSubmitting ? (
+                      <div className="w-6 h-6 border-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
+                    ) : (
+                      "Надіслати"
+                    )}
                   </span>
                 </span>
                 <span className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-2xl" />
@@ -131,7 +140,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-    </footer >
+    </footer>
   );
 };
 
