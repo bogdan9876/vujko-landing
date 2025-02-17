@@ -49,33 +49,33 @@ const Footer = () => {
   return (
     <footer>
       <div className="container py-5">
-        <div className="flex">
-          <div className="flex flex-1 flex-col items-center justify-center gap-5 max-md:w-full">
+        <div className="flex flex-col max-md:flex-col max-md:items-center">
+          <div className="flex flex-1 flex-col items-center justify-center gap-5 max-md:w-full max-md:order-first">
             <div className="flex flex-col items-center gap-2">
               <h3 className="h4 mb-5">Залишіть свої дані</h3>
             </div>
           </div>
-          <div className="flex flex-1 items-center justify-center max-md:w-full max-md:mt-10">
+          <div className="flex flex-1 items-center justify-center max-md:w-full max-md:mt-10 mb-5">
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-4 w-full max-w-md"
+              className="flex flex-col gap-4 w-full"
             >
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="Ваше ім'я"
-                className="p-3 border border-gray-300 rounded-xl cursor-pointer"
+                placeholder="Ваше ім'я/Позивний"
+                className="p-3 border border-gray-300 rounded-xl cursor-pointer bg-white text-black"
                 required
               />
               <input
-                type="email"
+                type="text"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                placeholder="Ваша електронна пошта"
-                className="p-3 border border-gray-300 rounded-xl cursor-pointer"
+                placeholder="Telegram/Signal"
+                className="p-3 border border-gray-300 rounded-xl cursor-pointer bg-white text-black"
                 required
               />
               <textarea
@@ -84,12 +84,12 @@ const Footer = () => {
                 value={formData.text}
                 onChange={handleInputChange}
                 placeholder="Ваше запитання"
-                className="p-3 border border-gray-300 rounded-xl cursor-pointer resize-none"
+                className="p-3 border border-gray-300 rounded-xl cursor-pointer resize-none bg-white text-black"
                 required
               />
               <Button
                 type="submit"
-                className="mt-4 p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                className="mt-4 p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 flex justify-center items-center"
               >
                 Надіслати
               </Button>
@@ -111,7 +111,7 @@ const Footer = () => {
               contact@vujko.net
             </p>
           </div>
-          <ul className="flex flex-1 justify-center gap-3 max-md:mt-10 md:justify-end">
+          <ul className="flex flex-1 justify-center gap-3 max-md:mt-10 md:justify-center">
             {socials.map(({ id, url, icon, title }) => (
               <li key={id}>
                 <a href={url} className="social-icon">
