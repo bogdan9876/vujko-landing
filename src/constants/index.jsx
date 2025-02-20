@@ -8,6 +8,7 @@ export const features = [
     button: {
       icon: "/images/magictouch.svg",
       title: "Дивитись демо",
+      href: "https://docs.google.com/presentation/d/1Ap1ZBu71W4S7r8A-OqwufeKueHcrqSMx/edit#slide=id.g3234406cb97_1_627"
     },
   },
   {
@@ -19,7 +20,7 @@ export const features = [
     button: {
       icon: "/images/docs.svg",
       title: "Читати документацію",
-      href: "https://drive.google.com/drive/folders/1RM2-_e05MBWfF1PmkYbOXwMaLEhe4yEL?usp=drive_link"
+      href: "https://drive.google.com/drive/folders/1L8JkKZ5rJPJqC6MHthj9pYbdTAVK6vgn?usp=drive_link"
     },
   },
 ];
