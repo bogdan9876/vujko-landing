@@ -18,9 +18,9 @@ const Hero = () => {
             </p>
             <Button icon="/images/zap.svg" href="https://www.linkedin.com/company/vujko/">Замовити</Button>
           </div>
-          <div className="flex justify-center max-lg:mt-10">
+          {/* <div className="flex justify-center max-lg:mt-10">
             <img src="/images/art.png" className="size-500 max-lg:h-auto" alt="hero" />
-          </div>
+          </div> */}
         </div>
       </Element>
     </section>
