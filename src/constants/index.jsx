@@ -8,7 +8,7 @@ export const features = [
     button: {
       icon: "/images/magictouch.svg",
       title: "Дивитись демо",
-      href: "https://docs.google.com/presentation/d/1Ap1ZBu71W4S7r8A-OqwufeKueHcrqSMx/edit#slide=id.g3234406cb97_1_627"
+      href: "https://drive.google.com/file/d/1pu1z129ipFLp5zngbUoZFVDgjuanrDed/view?usp=drive_link"
     },
   },
   {
