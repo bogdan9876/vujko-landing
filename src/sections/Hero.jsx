@@ -17,12 +17,12 @@ const Hero = () => {
               БПЛА FPV як бортовий пристрій
               <br></br>
               <br></br>
-              Вуйко проходить сертифікацію Brave1.
+              Вуйко отримав статус Brave1. Пройшов експертизу від Міністерства Оборони
             </p>
             <Button icon="/images/zap.svg" href="https://www.linkedin.com/company/vujko/">Замовити</Button>
           </div>
           {/* <div className="flex justify-center max-lg:mt-10">
-            <img src="/images/art.png" className="size-500 max-lg:h-auto" alt="hero" />
+            <img src="/images/vujko-photo.png" className="size-500 max-lg:h-auto" alt="hero" />
           </div> */}
         </div>
       </Element>
