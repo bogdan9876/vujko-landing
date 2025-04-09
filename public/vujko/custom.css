@@ -141,7 +141,6 @@ input[type='checkbox']:active {
   border-radius: 13px;
 }
 .topnav .icon{display:none;}
-.logo{width: 100%;}
 .lbl-wifi {align-self: flex-end;}
 .svg{display:flex;width:20px;margin-right:10px;}
 .svg-e{margin-top: 5px;margin-bottom: 5px;margin-left: 5px;margin-right: 5px;}
@@ -219,6 +218,10 @@ input[type='checkbox']:active {
   padding-bottom: 130px;
 }
 
+#filters-toggle {
+  margin-bottom: 20px;
+}
+
 #mine-fields {
   display: none;
 }
@@ -277,6 +280,7 @@ button i {
   transition: opacity 0.3s;
 }
 
+
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
@@ -288,6 +292,7 @@ input[type="range"]:focus {
   outline: none !important;
   border: none !important;
 }
+
 
 #about {color: lightgray}
 #esp-ip{display: inline-block;margin-bottom: 5px}
@@ -328,3 +333,45 @@ select {width:95.5%}
 }
 
 .hide{display:none;}
+
+#img-logo {
+  background-size: contain;
+  position: relative;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: auto;
+  margin-bottom: 0.5em;
+  margin-top: 0.5rem;
+}
+
+#profileSelect {
+  display: inline-flex;
+  padding: 10px 15px;
+  background-color: #fff;
+  font-weight: 800;
+  align-items: center;
+  color: #4D8A6A;
+  border: 0;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 8px;
+  font-size: 15px;
+  justify-content: center;
+  text-align: center;
+  appearance: none;
+}
+
+#profileSelect:hover {
+  filter: brightness(85%);
+}
+
+@media screen and (max-width: 1250px) {
+  #profileSelect {
+    width: 80%;
+  }
+
+  #img-logo {
+    width: 20%;
+    margin-top: 0.75em;
+  }
+}

@@ -13,11 +13,21 @@
     <main id="main-box">
         <header class="ctn">
             <div class="title">
-                <div id="img-logo" class="logo" title="Click to upload your logo file"></div>
+                <div id="img-logo">
+                    <!-- <a href="https://www.vujko.net/"
+                        style="display: block; width: 100%; height: 100%; position: absolute; left: 0; top: 0;"></a> -->
+                    <img src="config/logo.png" width="80px">
+                </div>
                 <div class="heading">
                     <h1 id="name-logo">Vujko WebServer</h1>
                     <span id="esp-ip"></span><br>
-                    <span id="esp-mode"></span> v4.2.2<span id="firmware"></span>
+                    <!-- <a href="https://www.vujko.net/" style="margin-right: 1rem; text-decoration: none;">НАШ САЙТ</a> -->
+                    <span id="esp-mode"></span>
+                    <span style="font-size: 25px; color: #515151; font-weight: 600; margin-right: 1rem;"
+                        id="profile-version"></span>
+                    <span><a style="text-decoration: none; color: inherit; cursor: pointer;"
+                            href="User_manual_4_2.pdf" download="">v4.2.2</a></span>
+                    <span id="firmware"></span>
                 </div>
             </div>
             <div class="topnav" id="top-nav">
@@ -43,39 +53,39 @@
                 <h2 class="heading-2">Відлік часу</h2>
                 <form id="timer-settings" class="form" action="/configTimers" method="POST">
                     <label class="input-label" style="display: inline;">
-                        Налаштування, сек:
+                        Час очікування, сек:
                         <span class="tooltip">*
-                            <span class="tooltiptext">Вкажіть час для налаштування відліку в секундах.</span>
+                            <span class="tooltiptext" data-tooltip="setupTimer"></span>
                         </span>
                         <input type="number" id="setupTimer" name="setupTimer" />
                     </label>
                     <label class="input-label" style="display: inline;">
-                        До вибуху, сек:
+                        До самознищення, сек:
                         <span class="tooltip">*
-                            <span class="tooltiptext">Задайте час до вибуху в секундах, що буде використовуватись під час роботи.</span>
+                            <span class="tooltiptext" data-tooltip="explosionTimer"></span>
                         </span>
-                        <div style="margin:0.5em 0" id="explosionTimer">1200</div>
-                        <div style="margin: 0.5em 0;">
-                            <input type="range" id="explosionSlider" name="explosionSlider" min="50" max="2000"
-                                step="10" value="1200"
-                                oninput="document.getElementById('explosionTimer').value = this.value">
-                        </div>
+                        <div id="explosionTimer"></div>
+                        <input type="range" id="explosionSlider" name="explosionSlider" min="50" max="2000" step="10"
+                            value="1200">
+                        <input type="number" id="explosionTimerInput" min="50" max="2000" step="10" value="1200">
                     </label>
                     <label class="input-label" style="display: inline;">
                         Захист після включення, сек:
                         <span class="tooltip">*
-                            <span class="tooltiptext">Визначте час захисту після активації в секундах, щоб уникнути несанкціонованого запуску.</span>
+                            <span class="tooltiptext" data-tooltip="protectionTimer"></span>
                         </span>
                         <input type="number" id="protectionTimer" name="protectionTimer" />
                     </label>
                     <label class="input-label" style="display: none;">
                         Час перезапуску, сек:
                         <span class="tooltip">*
-                            <span class="tooltiptext">Налаштуйте час для перезапуску системи у секундах.</span>
+                            <!-- не відображається -->
+                            <span class="tooltiptext" data-tooltip="restartTimer"></span>
                         </span>
                         <input type="number" id="restartTimer" name="restartTimer" />
                     </label>
-                    <button class="btn" type="button" onclick="saveParameters()">Зберегти</button>
+                    <button class="btn" type="button"
+                        onclick="saveParameters(document.getElementById('profileSelect').value)">Зберегти</button>
                 </form>
             </div>
             <div id="mine" class="content-page hide">
@@ -84,7 +94,7 @@
                     <label class="input-label" style="display: inline;">
                         Режим міни:
                         <span class="tooltip">*
-                            <span class="tooltiptext">Активуйте або деактивуйте режим міни для регулювання її роботи.</span>
+                            <span class="tooltiptext" data-tooltip="stationMineMode"></span>
                         </span>
                         <input type="checkbox" id="stationMineMode" class="t-check"
                             onchange="updateHiddenField('stationMineMode', 'stationMineModeHidden')" />
@@ -94,122 +104,148 @@
                         <label class="input-label" style="display: inline;">
                             Поріг Активності, G:
                             <span class="tooltip">*
-                                <span class="tooltiptext">Встановіть мінімальний поріг активності, після якого міна вважається активованою.</span>
+                                <span class="tooltiptext" data-tooltip="mineActivityThreshold"></span>
                             </span>
                             <input type="number" id="mineActivityThreshold" name="mineActivityThreshold" />
                         </label>
+                        <!-- можливо видалять поріг Бездіяльності, і зроблять його автоматичним  -->
                         <label class="input-label" style="display: inline;">
                             Поріг Бездіяльності, G:
                             <span class="tooltip">*
-                                <span class="tooltiptext">Задайте максимальний поріг бездіяльності для визначення неактивності міни.</span>
+                                <span class="tooltiptext" data-tooltip="mineInactivityThreshold"></span>
                             </span>
                             <input type="number" id="mineInactivityThreshold" name="mineInactivityThreshold" />
                         </label>
                         <label class="input-label" style="display: inline;">
                             Час Бездіяльності, сек:
                             <span class="tooltip">*
-                                <span class="tooltiptext">Встановіть час бездіяльності міни, після якого вона активується.</span>
+                                <span class="tooltiptext" data-tooltip="mineInactivityTime"></span>
                             </span>
                             <input type="number" id="mineInactivityTime" name="mineInactivityTime" />
                         </label>
                         <label class="input-label" style="display: inline;">
                             Загальний поріг дотику, G:
                             <span class="tooltip">*
-                                <span class="tooltiptext">Налаштуйте поріг для дотику до міни, після якого вона спрацьовує.</span>
+                                <span class="tooltiptext" data-tooltip="mineTapThreshold"></span>
                             </span>
                             <input type="number" step="0.1" id="mineTapThreshold" name="mineTapThreshold" />
                         </label>
                         <label class="input-label" style="display: inline;">
                             Загальна тривалість дотику, мс:
                             <span class="tooltip">*
-                                <span class="tooltiptext">Вкажіть тривалість дотику до міни, при якій вона спрацює.</span>
+                                <span class="tooltiptext" data-tooltip="mineTapDuration"></span>
                             </span>
                             <input type="number" id="mineTapDuration" name="mineTapDuration" />
                         </label>
                         <label class="input-label" style="display: inline;">
                             Загальна затримка дотику, мс:
                             <span class="tooltip">*
-                                <span class="tooltiptext">Налаштуйте затримку активації міни після дотику.</span>
+                                <span class="tooltiptext" data-tooltip="mineTapDelay"></span>
                             </span>
                             <input type="number" id="mineTapDelay" name="mineTapDelay" />
                         </label>
                     </div>
-                    <button class="btn" type="button" onclick="saveParameters()">Зберегти</button>
+                    <button class="btn" type="button"
+                        onclick="saveParameters(document.getElementById('profileSelect').value)">Зберегти</button>
                 </form>
             </div>
             <div id="drone" class="content-page hide">
                 <h2 class="heading-2">Дрон</h2>
                 <form id="drone-settings" class="form" action="/configDrone" method="POST">
-                    <label class="input-label" style="display: none;">
-                        Режим DC/AC:
-                        <span class="tooltip">*
-                            <span class="tooltiptext">Перемикайте між режимами постійного (DC) та змінного (AC) струму.</span>
-                        </span>
-                        <input type="checkbox" id="acDcModeToggle" class="t-check no-bg-change"
-                            onchange="updateHiddenField('acDcModeToggle', 'acDcModeHidden')" />
-                        <input type="hidden" id="acDcModeHidden" name="acDcModeHidden" value="0" />
-                    </label>
                     <label class="input-label" style="display: inline;">
-                        Поріг зчитування, G:
+                        Зчитування акселерометра:
                         <span class="tooltip">*
-                            <span class="tooltiptext">Встановіть граничне значення для зчитування даних, що визначає реакцію на зміни.</span>
+                            <span class="tooltiptext" data-tooltip="accelMode"></span>
                         </span>
-                        <div style="margin:0.5em 0" id="thresholdValue">10</div>
-                        <input type="range" id="readingThreshold" name="readingThreshold" min="1" max="16" step="0.1"
-                            value="10" oninput="document.getElementById('thresholdValue').textContent = this.value">
+                        <input type="checkbox" id="accelMode" class="t-check"
+                            onchange="updateHiddenField('accelMode', 'accelModeHidden')" />
+                        <input type="hidden" id="accelModeHidden" name="accelModeHidden" value="0" />
                     </label>
-                    <label class="input-label" style="display: inline;">
-                        Взрив при перегрузці, G:
-                        <span class="tooltip">*
-                            <span class="tooltiptext">Задайте поріг перегрузки, при якому дрон спрацює для вибуху.</span>
-                        </span>
-                        <input type="number" id="overloadExplosionThreshold" name="overloadExplosionThreshold" />
-                    </label>
-                    <label class="input-label" style="display: inline;">
-                        Автовибух по таймеру:
-                        <span class="tooltip">*
-                            <span class="tooltiptext">Увімкніть автоматичний вибух після заданого часу.</span>
-                        </span>
-                        <input type="checkbox" id="autoExplosionToggle" class="t-check no-bg-change"
-                            onchange="updateHiddenField('autoExplosionToggle', 'autoExplosionHidden')" />
-                        <input type="hidden" id="autoExplosionHidden" name="autoExplosionHidden" value="0" />
-                    </label>
-                    <label class="input-label" style="display: inline;">
-                        Логування даних:
-                        <span class="tooltip">*
-                            <span class="tooltiptext">Активуйте опцію для збереження даних у форматі CSV для подальшого аналізу.</span>
-                        </span>
-                        <input type="checkbox" id="logsDroneEnabled" class="t-check no-bg-change"
-                            onchange="updateHiddenField('logsDroneEnabled', 'logsDroneEnabledHidden')" />
-                        <input type="hidden" id="logsDroneEnabledHidden" name="logsDroneEnabledHidden" value="0" />
-                    </label>
-                    <label class="input-label" style="display: none;">
-                        Режим серверу:
-                        <span class="tooltip">*
-                            <span class="tooltiptext">Увімкніть серверний режим для взаємодії з іншими пристроями.</span>
-                        </span>
-                        <input type="checkbox" id="serverDroneMode" class="t-check no-bg-change"
-                            onchange="updateHiddenField('serverDroneMode', 'serverDroneModeHidden')" />
-                        <input type="hidden" id="serverDroneModeHidden" name="serverDroneModeHidden" value="0" />
-                    </label>
-                    <button class="btn" type="button" onclick="saveParameters()">Зберегти</button>
+
+                    <div id="drone-fields">
+                        <!-- todo remove -->
+                        <label class="input-label" style="display: none;">
+                            Поріг зчитування, G:
+                            <span class="tooltip">*
+                                <span class="tooltiptext" data-tooltip="readingThreshold"></span>
+                            </span>
+                            <div style="margin:0.5em 0" id="thresholdValue"></div>
+                            <input type="range" id="readingThreshold" name="readingThreshold" min="1" max="16"
+                                step="0.1" value="10">
+                            <input type="number" id="readingThresholdInput" min="1" max="16" step="0.1">
+                        </label>
+                        <label class="input-label" style="display: inline;">
+                            Вибух при перегрузці, G:
+                            <span class="tooltip">*
+                                <span class="tooltiptext" data-tooltip="overloadExplosionThreshold"></span>
+                            </span>
+                            <input type="number" id="overloadExplosionThreshold" name="overloadExplosionThreshold" />
+                        </label>
+                        <label class="input-label" style="display: inline;">
+                            Автовибух за таймером:
+                            <span class="tooltip">*
+                                <span class="tooltiptext" data-tooltip="autoExplosionToggle"></span>
+                            </span>
+                            <input type="checkbox" id="autoExplosionToggle" class="t-check no-bg-change"
+                                onchange="updateHiddenField('autoExplosionToggle', 'autoExplosionHidden')" />
+                            <input type="hidden" id="autoExplosionHidden" name="autoExplosionHidden" value="0" />
+                        </label>
+
+                        <button type="button" id="filters-toggle" class="btn" onclick="toggleFilters()">Фільтри</button>
+                        <div id="filters" style="display: none;">
+                            <label class="input-label" style="display: inline;">
+                                pt1:
+                                <input type="number" id="pt1" name="pt1" />
+                            </label>
+                            <label class="input-label" style="display: inline;">
+                                pt2:
+                                <input type="number" id="pt2" name="pt2" />
+                            </label>
+                            <label class="input-label">
+                                filterRate:
+                                <input type="number" id="filterRate" name="filterRate" />
+                            </label>
+                            <label class="input-label">
+                                refreshRate:
+                                <input type="number" id="refreshRate" name="refreshRate" />
+                            </label>
+                        </div>
+                    </div>
+                    <button class="btn" type="button"
+                        onclick="saveParameters(document.getElementById('profileSelect').value)">
+                        Зберегти
+                    </button>
                 </form>
-            </div>      
+            </div>
             <div id="expert" class="content-page hide">
                 <h2 class="heading-2">Експерт</h2>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 2em;">
-                    <div style="color: white; display:none">
+                    <label class="input-label" style="display: inline; margin-bottom: -15px;">
+                        Вибір профіля:
+                    </label>
+                    <select id="profileSelect" onchange="updateProfile()"></select>
+                    <!-- <div style="color: white">
                         <h3>Реальні значення XYZ</h3>
                         <p>X: <span id="x-value">0</span></p>
                         <p>Y: <span id="y-value">0</span></p>
                         <p>Z: <span id="z-value">0</span></p>
-                    </div>
+                    </div> -->
                     <button onclick="restartESP()">Перезавантаження</button>
-                    <!-- <button onclick="window.location.href='http://192.168.4.1/edit'">Файли</button>
-                    <button onclick="window.location.href='csv.htm'">Логи</button> -->
+                    <!-- <button onclick="window.location.href='http://192.168.4.1/edit'">Файли</button> -->
+                    <label class="input-label" style="display: inline; margin-bottom: -15px;"
+                        style="display: flex; align-items: center; gap: 5px;">
+                        Логування даних:
+                        <span class="tooltip">*
+                            <span class="tooltiptext" data-tooltip="logsDroneEnabled"></span>
+                        </span>
+                        <input type="checkbox" style="margin-top: 15px;" id="logsDroneEnabled"
+                            class="t-check no-bg-change" onchange="toggleLogButton()" />
+                        <input type="hidden" id="logsDroneEnabledHidden" name="logsDroneEnabledHidden" value="0" />
+                    </label>
+                    <!-- <button id="logButton" style="display: none;" onclick="window.location.href='csv.htm'">Логи</button> -->
                     <button id="reset-defaults">Скинути до заводських</button>
-                    <button><a style="text-decoration: none; color: inherit;"
-                            href="assets/manual/User_manual_4.2.2_1.pdf" download="">Завантажити посібник
+                    <button><a style="text-decoration: none; color: inherit;" href="User_manual_4_2.pdf"
+                            download="">Завантажити посібник
                             користувача</a></button>
                 </div>
             </div>
