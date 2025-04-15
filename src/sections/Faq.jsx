@@ -7,7 +7,7 @@ const Faq = () => {
 
   return (
     <section>
-      <Element name="Характеристики" className="relative">
+      <Element name="Запитання" className="relative">
         <div className="container relative z-2 mt-20 pt-8 pb-20">
           <div>
             <h3 className="h3 max-md:h5 max-w-640 max-lg:max-w-md mb-7 text-p4">
