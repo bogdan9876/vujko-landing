@@ -62,27 +62,27 @@ function loadConfig(configPath) {
         .catch(error => console.error(`Помилка завантаження ${configPath}:`, error));
 }
 
-function syncValues(){
+function syncValues() {
     const slider = document.getElementById("readingThreshold");
-        const numberInput = document.getElementById("readingThresholdInput");
-        const valueDisplay = document.getElementById("thresholdValue");
+    const numberInput = document.getElementById("readingThresholdInput");
+    const valueDisplay = document.getElementById("thresholdValue");
 
-        function syncValues(source, target) {
-            target.value = source.value;
-            valueDisplay.textContent = source.value;
-        }
+    function syncValues(source, target) {
+        target.value = source.value;
+        valueDisplay.textContent = source.value;
+    }
 
+    syncValues(slider, numberInput);
+
+    slider.addEventListener("input", function () {
         syncValues(slider, numberInput);
+    });
 
-        slider.addEventListener("input", function () {
-            syncValues(slider, numberInput);
-        });
-
-        numberInput.addEventListener("input", function () {
-            if (numberInput.value < slider.min) numberInput.value = slider.min;
-            if (numberInput.value > slider.max) numberInput.value = slider.max;
-            syncValues(numberInput, slider);
-        });
+    numberInput.addEventListener("input", function () {
+        if (numberInput.value < slider.min) numberInput.value = slider.min;
+        if (numberInput.value > slider.max) numberInput.value = slider.max;
+        syncValues(numberInput, slider);
+    });
 }
 
 function syncExplosionTimer() {
@@ -127,17 +127,17 @@ function initializeConfig(config) {
     document.getElementById("thresholdValue").textContent = droneSettings.value;
 
     updateInputValue("overloadExplosionThreshold", config['Взрив при перегрузці, G']);
-    
+
     updateInputValue("pt1", config['pt1']);
     updateInputValue("pt2", config['pt2']);
     updateInputValue("filterRate", config['filterRate']);
     updateInputValue("refreshRate", config['refreshRate']);
-    
+
     // document.getElementById("acDcModeToggle").checked = config['ac-dc-mode'] === 8;
     document.getElementById("autoExplosionToggle").checked = config['Автовибух по таймеру'] === 1;
     document.getElementById("logsDroneEnabled").checked = config['Логування даних'] === true;
     updateHiddenField('logsDroneEnabled', 'logsDroneEnabledHidden');
-    
+
     document.getElementById("stationMineMode").checked = config['Режим міни'];
     updateInputValue("mineActivityThreshold", config['Поріг Активності, G']);
     updateInputValue("mineInactivityThreshold", config['Поріг Бездіяльності, G']);
@@ -260,7 +260,7 @@ function handleFormResponse(data, form) {
 
 function showPage(pageId) {
     event.preventDefault();
-    
+
     const pages = document.querySelectorAll('.content-page');
     pages.forEach(page => page.classList.add('hide'));
 
@@ -329,25 +329,25 @@ function saveParameters(profileNumber) {
     const configJSON = JSON.stringify(configData, null, 2);
     const configBlob = new Blob([configJSON], { type: "application/json" });
     const sendConfig = (filePath) => {
-    const formData = new FormData();
-    formData.append("data", configBlob, filePath);
+        const formData = new FormData();
+        formData.append("data", configBlob, filePath);
 
-    return fetch('/edit', {
-        method: 'POST',
-        body: formData
-    });
-};
+        return fetch('/edit', {
+            method: 'POST',
+            body: formData
+        });
+    };
 
-Promise.all([
-    sendConfig(`assets/profile${profileNumber}.json`),
-    sendConfig(`config/config.json`)
-])
-.then(() => {
-    showToast("Файли успішно збережені!");
-})
-.catch(() => {
-    showToast("Помилка при збереженні конфігурації!");
-});
+    Promise.all([
+        sendConfig(`assets/profile${profileNumber}.json`),
+        sendConfig(`config/config.json`)
+    ])
+        .then(() => {
+            showToast("Файли успішно збережені!");
+        })
+        .catch(() => {
+            showToast("Помилка при збереженні конфігурації!");
+        });
 }
 
 function updateHiddenField(checkboxId, hiddenFieldId) {
@@ -367,20 +367,20 @@ document.getElementById("reset-defaults").addEventListener("click", () => {
             const profileIndex = document.getElementById("profileSelect").value;
             const formData = new FormData();
             formData.append("data", configBlob, `assets/profile${profileIndex}.json`);
-        
+
             fetch('/edit', {
                 method: 'POST',
                 body: formData
-        
+
             })
-            .then(response => response.text())
-            .then((responseText) => {
-                showToast(`Параметри скинуті до значень за замовчуванням! ${responseText}`);
-                loadConfig(`assets/profile${profileIndex}.json`);
-            })
-            .catch((error) => {
-                showToast("Помилка при збереженні конфігурації!");
-            });
+                .then(response => response.text())
+                .then((responseText) => {
+                    showToast(`Параметри скинуті до значень за замовчуванням!`);
+                    loadConfig(`assets/profile${profileIndex}.json`);
+                })
+                .catch((error) => {
+                    showToast("Помилка при збереженні конфігурації!");
+                });
         })
         .catch(error => {
             showToast("Помилка при завантаженні конфігурації!");
@@ -392,17 +392,17 @@ var esp = `${window.location.protocol}//${window.location.hostname}:${port}/`;
 
 function restartESP() {
     fetch(esp + "reset")
-    .then(response => response.text())
-    .then(data => {
-        console.log("done")
-    });
+        .then(response => response.text())
+        .then(data => {
+            console.log("done")
+        });
 }
 
 function toggleLogButton() {
     let checkbox = document.getElementById('logsDroneEnabled');
     let button = document.getElementById('logButton');
     let hiddenInput = document.getElementById('logsDroneEnabledHidden');
-    
+
     if (checkbox.checked) {
         button.style.display = 'inline-block';
         hiddenInput.value = '1';
@@ -413,39 +413,42 @@ function toggleLogButton() {
 }
 
 function updateProfile() {
-    document.getElementById('profile-version').textContent = 
+    document.getElementById('profile-version').textContent =
         "Профіль: " + document.getElementById('profileSelect').value;
 }
 
 function checkProfiles() {
     const profileSelect = document.getElementById("profileSelect");
-    const profileFolder = 'assets/';
-    let totalProfiles = 0;
+    profileSelect.innerHTML = "";
 
-    profileSelect.innerHTML = '';
+    let profileFound = false;
 
-    const checkProfile = async (i) => {
-        const profilePath = `${profileFolder}profile${i}.json`;
+    for (let i = 1; i <= 5; i++) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("HEAD", `assets/profile${i}.json`, false);
+        xhr.send();
 
-        try {
-            const response = await fetch(profilePath, { method: "GET" });
-            if (response.ok) {
-                totalProfiles++;
-                const option = document.createElement('option');
-                option.value = i;
-                option.textContent = `Профіль ${i}`;
-                profileSelect.appendChild(option);
-            }
-        } catch {
-            console.log("Помилка при перевірці профілю");
+        if (xhr.status === 200) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.text = `Профіль ${i}`;
+            profileSelect.appendChild(option);
+
+            if (i === 1) profileFound = true;
         }
-    };
-
-    const profilePromises = [];
-    for (let i = 1; i <= 4; i++) {
-        profilePromises.push(checkProfile(i));
     }
-    return Promise.all(profilePromises);
+
+    if (profileFound) {
+        profileSelect.value = "1";
+        updateProfile();
+        loadConfig(`assets/profile1.json`);
+    } else if (profileSelect.options.length > 0) {
+        profileSelect.selectedIndex = 0;
+        updateProfile();
+        loadConfig(`assets/profile${profileSelect.value}.json`);
+    } else {
+        console.warn("Жодного профілю не знайдено.");
+    }
 }
 
 function loadDefaultProfile() {
