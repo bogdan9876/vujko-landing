@@ -5,16 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loadConfig("config/config.json");
 
+    showPage('timer');
+
     checkProfiles().then(() => {
         loadDefaultProfile();
     });
 
     document.getElementById("stationMineMode").addEventListener("change", toggleMineFields);
     document.getElementById("accelMode").addEventListener("change", toggleDroneFields);
-
     document.addEventListener("submit", handleFormSubmit);
-
-    showPage('timer');
 
     const explosionSlider = document.getElementById("explosionSlider");
     const explosionTimer = document.getElementById("explosionTimer");
