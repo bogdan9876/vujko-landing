@@ -375,7 +375,7 @@ document.getElementById("reset-defaults").addEventListener("click", () => {
             })
                 .then(response => response.text())
                 .then((responseText) => {
-                    showToast(`Параметри скинуті до значень за замовчуванням! ${responseText}`);
+                    showToast(`Параметри скинуті до значень за замовчуванням!`);
                     loadConfig(`assets/profile${profileIndex}.json`);
                 })
                 .catch((error) => {
