@@ -4,19 +4,19 @@ import { FaDownload } from "react-icons/fa";
 
 const manuals = [
   {
-    title: "Мануал",
+    title: "Повний мануал",
     description: "Загальний опис пристроя",
-    file: "/manuals/Datasheet_4_2_2.pdf",
+    file: "/manuals/Datasheet_4_2_3.pdf",
   },
   {
-    title: "Мануал #2",
+    title: "Технічний мануал",
     description: "Інструкція для 3Д моделі",
-    file: "/manuals/manual2.pdf",
+    file: "/manuals/Tech_manual_4_2_3.pdf",
   },
   {
-    title: "Мануал #3",
+    title: "Користувацький мануал",
     description: "Ще один корисний файл",
-    file: "/manuals/manual3.zip",
+    file: "/manuals/User_manual_4_2_3.pdf",
   },
 ];
 
