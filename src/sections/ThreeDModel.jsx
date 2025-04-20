@@ -7,19 +7,17 @@ const manuals = [
     description: "Загальний опис пристроя",
     file: "/manuals/Datasheet_4_2_2.pdf",
   },
+  {
+    title: "Мануал #2",
+    description: "Інструкція для 3Д моделі",
+    file: "/manuals/manual2.pdf",
+  },
+  {
+    title: "Мануал #3",
+    description: "Ще один корисний файл",
+    file: "/manuals/manual3.zip",
+  },
 ];
-
-
-// {
-//   title: "Мануал #2",
-//   description: "Інструкція для 3Д моделі",
-//   file: "/manuals/manual2.pdf",
-// },
-// {
-//   title: "Мануал #3",
-//   description: "Ще один корисний файл",
-//   file: "/manuals/manual3.zip",
-// },
 
 const ThreeDModel = () => {
   return (
@@ -30,7 +28,7 @@ const ThreeDModel = () => {
             <p className="caption mb-2 text-[#2EF2FF]">Мануали</p>
             <h3 className="h3 text-white">Завантаження Мануалу</h3>
           </div>
-          <div className="flex justify-center items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {manuals.map((manual, index) => (
               <a
                 key={index}
