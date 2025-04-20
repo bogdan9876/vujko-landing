@@ -30,6 +30,7 @@ const Header = () => {
     "Особливості": -100,
     "Запитання": -100,
     "Мануали": -100,
+    "Зв'язатись": screenWidth < 768 ? -0 : -465,
   };
 
   const NavLink = ({ title }) => {
@@ -96,7 +97,7 @@ const Header = () => {
                 </li>
 
                 <li className="nav-li">
-                <NavLink title="Конфігурація" />
+                  <NavLink title="Конфігурація" />
                   <div className="dot mx-15" />
                   <NavLink title="Зв'язатись" />
                 </li>
