@@ -10,12 +10,12 @@ const manuals = [
   },
   {
     title: "Технічний мануал",
-    description: "Інструкція для 3Д моделі",
+    description: "Технічні характеристики",
     file: "/manuals/Tech_manual_4_2_2.pdf",
   },
   {
     title: "Користувацький мануал",
-    description: "Ще один корисний файл",
+    description: "Інструкція по експлуатації",
     file: "/manuals/User_manual_4_2_2.pdf",
   },
 ];
@@ -36,7 +36,7 @@ const Manuals = () => {
                   <a
                     href={manual.file}
                     download
-                    className="group block rounded-xl bg-[#0c1838] p-6 shadow-lg transition hover:bg-[#2EF2FF22] border border-[#2EF2FF44] w-64"
+                    className="group block rounded-xl bg-[#0c1838] p-6 shadow-lg transition hover:bg-[#2EF2FF22] border border-[#2EF2FF44] w-80"
                   >
                     <div className="flex items-center justify-between mb-3">
                       <h4 className="text-lg font-semibold text-white group-hover:text-[#2EF2FF]">
