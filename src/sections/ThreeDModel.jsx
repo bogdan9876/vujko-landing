@@ -29,7 +29,7 @@ const ThreeDModel = () => {
             <p className="caption mb-2 text-[#2EF2FF]">Мануали</p>
             <h3 className="h3 text-white">Завантаження Мануалу</h3>
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
             {manuals.map((manual, index) => (
               <React.Fragment key={index}>
                 <a
@@ -45,11 +45,17 @@ const ThreeDModel = () => {
                   </div>
                   <p className="text-sm text-gray-300">{manual.description}</p>
                 </a>
-                {index === 0 && (
-                  <span className="text-2xl font-bold text-white mx-2">=</span>
+
+                {(index === 0 || index === 1) && (
+                  <span className="text-2xl font-bold text-white md:mx-2 md:block hidden">
+                    {index === 0 ? "=" : "+"}
+                  </span>
                 )}
-                {index === 1 && (
-                  <span className="text-2xl font-bold text-white mx-2">+</span>
+
+                {(index === 0 || index === 1) && (
+                  <span className="text-2xl font-bold text-white md:hidden">
+                    {index === 0 ? "=" : "+"}
+                  </span>
                 )}
               </React.Fragment>
             ))}
