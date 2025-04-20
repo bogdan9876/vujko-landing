@@ -20,7 +20,7 @@ export const features = [
     button: {
       icon: "/images/docs.svg",
       title: "Читати документацію",
-      href: "https://drive.google.com/drive/folders/1L8JkKZ5rJPJqC6MHthj9pYbdTAVK6vgn?usp=drive_link"
+      href: "https://drive.google.com/drive/folders/1Pv7HttjdhOxe-fmTUjr1i6qH_fh-BMQr"
     },
   },
 ];
