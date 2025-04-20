@@ -2,7 +2,7 @@ import { Element } from "react-scroll";
 import { links } from "../constants/index.jsx";
 import { Marker } from "../components/Marker.jsx";
 
-const Download = () => {
+const WebSite = () => {
   return (
     <section>
       <Element
@@ -71,4 +71,4 @@ const Download = () => {
     </section>
   );
 };
-export default Download;
+export default WebSite;

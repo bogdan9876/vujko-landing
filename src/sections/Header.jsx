@@ -5,32 +5,50 @@ import clsx from "clsx";
 const Header = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 32);
     };
 
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  const NavLink = ({ title, offset }) => (
-    <LinkScroll
-      onClick={() => setIsOpen(false)}
-      to={title}
-      offset={offset}
-      spy
-      smooth
-      activeClass="nav-active"
-      className="base-bold text-p4 uppercase transition-colors duration-500 cursor-pointer hover:text-p1 max-lg:my-4 max-lg:h5"
-    >
-      {title}
-    </LinkScroll>
-  );
+  const offsets = {
+    "Конфігурація": screenWidth < 768 ? -70 : -10,
+    "Особливості": -100,
+    "Запитання": -100,
+    "Мануали": -100,
+  };
+
+  const NavLink = ({ title }) => {
+    const offset = offsets[title]
+
+    return (
+      <LinkScroll
+        onClick={() => setIsOpen(false)}
+        to={title}
+        offset={offset}
+        spy
+        smooth
+        activeClass="nav-active"
+        className="base-bold text-p4 uppercase transition-colors duration-500 cursor-pointer hover:text-p1 max-lg:my-4 max-lg:h5"
+      >
+        {title}
+      </LinkScroll>
+    );
+  };
 
   return (
     <header
@@ -41,7 +59,7 @@ const Header = () => {
     >
       <div className="container flex h-14 items-center max-lg:px-4">
         <a className="lg:hidden flex-1 cursor-pointer z-2">
-         <img src="images/logo.png" width={45} height={165} alt="logo" /> 
+          <img src="images/logo.png" width={45} height={165} alt="logo" />
         </a>
 
         <div
@@ -54,9 +72,9 @@ const Header = () => {
             <nav className="max-lg:relative max-lg:z-2 max-lg:my-auto">
               <ul className="flex max-lg:block max-lg:px-15">
                 <li className="nav-li">
-                  <NavLink title="Особливості" offset={-100}/>
-                  <div className="dot mx-15"/>
-                  <NavLink title="Запитання" offset={-100}/>
+                  <NavLink title="Особливості" />
+                  <div className="dot mx-15" />
+                  <NavLink title="Мануали" />
                 </li>
 
                 <li className="nav-logo">
@@ -78,9 +96,9 @@ const Header = () => {
                 </li>
 
                 <li className="nav-li">
-                  <NavLink title="Мануали" offset={-100}/>
+                <NavLink title="Конфігурація" />
                   <div className="dot mx-15" />
-                  <NavLink title="Конфігурація"/>
+                  <NavLink title="Зв'язатись" />
                 </li>
               </ul>
             </nav>
