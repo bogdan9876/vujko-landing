@@ -1,6 +1,4 @@
 import { Element } from "react-scroll";
-import { links } from "../constants/index.jsx";
-import { Marker } from "../components/Marker.jsx";
 
 const WebSite = () => {
   return (
