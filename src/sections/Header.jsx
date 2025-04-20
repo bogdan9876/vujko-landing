@@ -1,5 +1,6 @@
 import { Link as LinkScroll } from "react-scroll";
 import { useEffect, useState } from "react";
+import { scroller } from "react-scroll";
 import clsx from "clsx";
 
 const Header = () => {
@@ -32,6 +33,21 @@ const Header = () => {
     "Мануали": screenWidth < 768 ? -50 : -100,
     "Зв'язатись": screenWidth < 768 ? -0 : -465,
   };
+
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.data?.type === "scrollToSection" && event.data.section) {
+        scroller.scrollTo(event.data.section, {
+          smooth: true,
+          duration: 1000,
+          offset: -250,
+        });
+      }
+    };
+  
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, [offsets]);
 
   const NavLink = ({ title }) => {
     const offset = offsets[title]

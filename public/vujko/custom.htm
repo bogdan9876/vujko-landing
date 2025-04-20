@@ -13,11 +13,9 @@
     <main id="main-box">
         <header class="ctn">
             <div class="title">
-                <div id="img-logo">
-                    <!-- <a href="https://www.vujko.net/"
-                        style="display: block; width: 100%; height: 100%; position: absolute; left: 0; top: 0;"></a> -->
-                    <img src="config/logo.png" width="80px">
-                </div>
+                <div id="img-logo" onclick="scrollToHero()">
+                    <img src="config/logo.png" width="80px" style="cursor: pointer;">
+                  </div>
                 <div class="heading">
                     <h1 id="name-logo">Vujko WebServer</h1>
                     <span id="esp-ip"></span><br>
@@ -256,6 +254,11 @@
         <a id="about" target="_blank" rel="noopener"></a>
     </footer>
     <script src="custom.js"></script>
+    <script>
+        function scrollToHero() {
+          parent.postMessage({ type: "scrollToSection", section: "hero" }, "*");
+        }
+      </script>
 </body>
 
 </html>
