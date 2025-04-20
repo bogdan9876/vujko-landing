@@ -1,3 +1,4 @@
+import React from "react";
 import { Element } from "react-scroll";
 import { FaDownload } from "react-icons/fa";
 
@@ -28,22 +29,29 @@ const ThreeDModel = () => {
             <p className="caption mb-2 text-[#2EF2FF]">Мануали</p>
             <h3 className="h3 text-white">Завантаження Мануалу</h3>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center items-center gap-4">
             {manuals.map((manual, index) => (
-              <a
-                key={index}
-                href={manual.file}
-                download
-                className="group block rounded-xl bg-[#0c1838] p-6 shadow-lg transition hover:bg-[#2EF2FF22] border border-[#2EF2FF44]"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="text-lg font-semibold text-white group-hover:text-[#2EF2FF]">
-                    {manual.title}
-                  </h4>
-                  <FaDownload className="text-[#2EF2FF] group-hover:scale-110 transition" />
-                </div>
-                <p className="text-sm text-gray-300">{manual.description}</p>
-              </a>
+              <React.Fragment key={index}>
+                <a
+                  href={manual.file}
+                  download
+                  className="group block rounded-xl bg-[#0c1838] p-6 shadow-lg transition hover:bg-[#2EF2FF22] border border-[#2EF2FF44] w-64"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="text-lg font-semibold text-white group-hover:text-[#2EF2FF]">
+                      {manual.title}
+                    </h4>
+                    <FaDownload className="text-[#2EF2FF] group-hover:scale-110 transition" />
+                  </div>
+                  <p className="text-sm text-gray-300">{manual.description}</p>
+                </a>
+                {index === 0 && (
+                  <span className="text-2xl font-bold text-white mx-2">=</span>
+                )}
+                {index === 1 && (
+                  <span className="text-2xl font-bold text-white mx-2">+</span>
+                )}
+              </React.Fragment>
             ))}
           </div>
         </div>
