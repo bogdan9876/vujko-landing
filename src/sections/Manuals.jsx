@@ -6,17 +6,17 @@ const manuals = [
   {
     title: "Повний мануал",
     description: "Загальний опис пристроя",
-    file: "/manuals/Datasheet_4_2_3.pdf",
+    file: "/manuals/Datasheet_4_2_2.pdf",
   },
   {
     title: "Технічний мануал",
     description: "Інструкція для 3Д моделі",
-    file: "/manuals/Tech_manual_4_2_3.pdf",
+    file: "/manuals/Tech_manual_4_2_2.pdf",
   },
   {
     title: "Користувацький мануал",
     description: "Ще один корисний файл",
-    file: "/manuals/User_manual_4_2_3.pdf",
+    file: "/manuals/User_manual_4_2_2.pdf",
   },
 ];
 
