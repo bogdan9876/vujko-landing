@@ -124,7 +124,7 @@ const Footer = () => {
                 +380 98 004 14 11
               </p>
               <p className="text-p5 transition-all duration-500 hover:text-p1">
-                contact@vujko.net
+                vladislavvanyuk@gmail.com
               </p>
             </div>
             <ul className="flex flex-1 justify-center gap-3 max-md:mt-10 md:justify-center">
